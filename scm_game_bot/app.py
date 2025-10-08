@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd 
 import requests 
 import random 
-import os from scm_logic 
-import SCMGame
+import os 
+from scm_logic import SCMGame
 # ------------------ PAGE CONFIG & STYLE ------------------ #
 st.set_page_config(page_title="Supply Chain Simulator", layout="wide")
 st.markdown("""
@@ -115,4 +115,5 @@ facts = [
     "The global supply chain industry is worth over $10 trillion as of 2025."
 ]
 st.markdown(f"<div class='fact-box'>{random.choice(facts)}</div>", unsafe_allow_html=True)
+
 
