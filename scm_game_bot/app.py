@@ -154,7 +154,12 @@ except Exception as e:
     st.error(f"Error fetching news: {e}")
 
 
-
-
-
-
+# ------------------ GAME LOG ------------------ #
+st.markdown("---")
+# Collapsible log at the bottom
+with st.expander("🧾 Game Log", expanded=False):
+    if st.session_state.messages:
+        for msg in reversed(st.session_state.messages):
+            st.markdown(f"<div class='log-box'>{msg}</div>", unsafe_allow_html=True)
+    else:
+        st.info("No game activity yet. Play the stages to see logs here.")
