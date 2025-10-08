@@ -34,14 +34,20 @@ game = SCMGame(data_path=data_path)
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
+# ---------------------- HEADER ---------------------- #
+st.title("🤖 SCM Game Bot – Experiential Learning for Supply Chain Consultants")
+st.markdown("Welcome to the **SCM Game Bot**! Step into the shoes of a Supply Chain Consultant and navigate the 5 critical stages below.")
 
-st.title("🌐 Supply Chain Management Simulation")
-
+# ---------------------- SCM STAGES ---------------------- #
 st.markdown("""
-Welcome to the **Supply Chain Game Simulator**!  
-Manage your supply chain through all key stages — from **Planning** to **Returns** —  
-and evaluate your performance based on **Profit, Satisfaction, and Inventory**.
+### 🏗️ Supply Chain Stages:
+1️⃣ **Planning** – Forecast demand and align resources.  
+2️⃣ **Sourcing** – Choose suppliers and manage procurement.  
+3️⃣ **Manufacturing** – Optimize production and minimize waste.  
+4️⃣ **Delivery / Logistics** – Manage transportation and ensure timely delivery.  
+5️⃣ **Returns / After-sales Service** – Handle returns and improve customer satisfaction.
 """)
+
 
 # ------------------ STAGES ------------------ #
 # STAGE 1: Planning
@@ -145,6 +151,7 @@ try:
         st.warning("⚠️ Could not fetch news right now.")
 except Exception as e:
     st.error(f"Error fetching news: {e}")
+
 
 
 
