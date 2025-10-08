@@ -97,7 +97,7 @@ st.info(random.choice(facts))
 
 # ------------------ SUPPLY CHAIN NEWS ------------------ #
 st.markdown("---")
-st.markdown("<div class='section-title'>📰 Supply Chain News</div>", unsafe_allow_html=True)
+st.markdown("<div class='section-title'>📰 Daily Supply Chain News</div>", unsafe_allow_html=True)
 
 try:
     NEWS_API = "https://newsdata.io/api/1/news?apikey=pub_e4d7b2dfecaa4b4db0de9a55242cd38f&q=supply%20chain%20management&language=en"
@@ -111,10 +111,11 @@ try:
             short_desc = " ".join(description.split()[:50]) + "..." if description else "No description available."
             link = article.get("link", "#")
 
+            # Display as subheader inside a rounded box
             st.markdown(f"""
                 <div class='news-box'>
-                    <b>{title}</b><br>
-                    {short_desc} <a href="{link}" target="_blank">Read more</a>
+                    <h4 style='color:#00ADB5'>{title}</h4>
+                    <p>{short_desc} <a href="{link}" target="_blank">Read more</a></p>
                 </div>
             """, unsafe_allow_html=True)
         else:
@@ -123,5 +124,4 @@ try:
         st.warning("⚠️ Could not fetch news right now.")
 except Exception as e:
     st.error(f"Error fetching news: {e}")
-
 
