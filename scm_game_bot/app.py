@@ -1,4 +1,3 @@
-```python
 import streamlit as st
 import pandas as pd
 import requests
@@ -92,3 +91,4 @@ try:
 except Exception as e:
     st.error(f"Error fetching news: {e}")
 ```
+
