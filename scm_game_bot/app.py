@@ -103,14 +103,6 @@ col1.metric("💰 Total Profit", f"{game.total_profit}")
 col2.metric("😊 Customer Satisfaction", f"{game.customer_satisfaction}")
 col3.metric("📦 Inventory", f"{game.inventory}")
 
-# ------------------ GAME LOG ------------------ #
-st.markdown("---")
-# Collapsible log in top-right corner
-with st.expander("🧾 Game Log", expanded=False):
-    for msg in reversed(st.session_state.messages):
-        st.markdown(f"<div class='log-box'>{msg}</div>", unsafe_allow_html=True)
-
-
 # ------------------ DAILY SUPPLY CHAIN FACT ------------------ #
 st.markdown("---")
 st.markdown("<div class='section-title'>💡 Daily Supply Chain Fact</div>", unsafe_allow_html=True)
@@ -123,6 +115,13 @@ facts = [
     "The global supply chain industry is worth over $10 trillion as of 2025."
 ]
 st.markdown(f"<div class='fact-box'>{random.choice(facts)}</div>", unsafe_allow_html=True)
+
+# ------------------ GAME LOG ------------------ #
+st.markdown("---")
+# Collapsible log in top-right corner
+with st.expander("🧾 Game Log", expanded=False):
+    for msg in reversed(st.session_state.messages):
+        st.markdown(f"<div class='log-box'>{msg}</div>", unsafe_allow_html=True)
 
 # ------------------ DAILY SUPPLY CHAIN NEWS ------------------ #
 st.markdown("---")
