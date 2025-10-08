@@ -1,0 +1,4 @@
+supplier_id,name,cost_per_unit,reliability,lead_time_days
+1,AlphaSupplies,5.0,0.95,3
+2,BetaGoods,4.0,0.8,5
+3,GammaTrade,3.5,0.7,7
