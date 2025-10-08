@@ -96,6 +96,7 @@ facts = [
 st.info(random.choice(facts))
 
 # ------------------ SUPPLY CHAIN NEWS ------------------ #
+# ------------------ SUPPLY CHAIN NEWS ------------------ #
 st.markdown("---")
 st.markdown("<div class='section-title'>📰 Daily Supply Chain News</div>", unsafe_allow_html=True)
 
@@ -111,11 +112,11 @@ try:
             short_desc = " ".join(description.split()[:50]) + "..." if description else "No description available."
             link = article.get("link", "#")
 
-            # Display as subheader inside a rounded box
+            # Rounded box for the article content
             st.markdown(f"""
-                <div class='news-box'>
-                    <h4 style='color:#00ADB5'>{title}</h4>
-                    <p>{short_desc} <a href="{link}" target="_blank">Read more</a></p>
+                <div class='fact-box'>
+                    <b>{title}</b><br>
+                    {short_desc} <a href="{link}" target="_blank">Read more</a>
                 </div>
             """, unsafe_allow_html=True)
         else:
@@ -124,4 +125,5 @@ try:
         st.warning("⚠️ Could not fetch news right now.")
 except Exception as e:
     st.error(f"Error fetching news: {e}")
+
 
