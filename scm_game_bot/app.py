@@ -105,9 +105,11 @@ col3.metric("📦 Inventory", f"{game.inventory}")
 
 # ------------------ GAME LOG ------------------ #
 st.markdown("---")
-st.subheader("🧾 Game Log")
-for msg in reversed(st.session_state.messages):
-    st.markdown(f"<div class='log-box'>{msg}</div>", unsafe_allow_html=True)
+# Collapsible log in top-right corner
+with st.expander("🧾 Game Log", expanded=False):
+    for msg in reversed(st.session_state.messages):
+        st.markdown(f"<div class='log-box'>{msg}</div>", unsafe_allow_html=True)
+
 
 # ------------------ DAILY SUPPLY CHAIN FACT ------------------ #
 st.markdown("---")
@@ -151,6 +153,7 @@ try:
         st.warning("⚠️ Could not fetch news right now.")
 except Exception as e:
     st.error(f"Error fetching news: {e}")
+
 
 
 
