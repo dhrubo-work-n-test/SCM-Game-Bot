@@ -37,6 +37,30 @@ if "messages" not in st.session_state:
 # ---------------------- HEADER ---------------------- #
 st.title("🤖 SCM Game Bot – Experiential Learning for Supply Chain Consultants")
 st.markdown("Welcome to the **SCM Game Bot**! Step into the shoes of a Supply Chain Consultant and navigate the 5 critical stages below.")
+# ------------------ WELCOME / INSTRUCTIONS POP-UP ------------------ #
+if "show_instructions" not in st.session_state:
+    st.session_state.show_instructions = True
+
+if st.session_state.show_instructions:
+    with st.expander("🎮 Welcome to SCM Game Bot! How to Play", expanded=True):
+        st.markdown("""
+        **Welcome to the SCM Game Bot!**  
+
+        In this interactive game, you step into the shoes of a Supply Chain Consultant.  
+        You will navigate through the **five critical stages of a supply chain**:
+
+        1️⃣ **Planning** – Forecast demand and align resources.  
+        2️⃣ **Sourcing** – Choose suppliers and manage procurement.  
+        3️⃣ **Manufacturing** – Optimize production and minimize waste.  
+        4️⃣ **Delivery / Logistics** – Manage transportation and ensure timely delivery.  
+        5️⃣ **Returns / After-sales Service** – Handle returns and improve customer satisfaction.  
+
+        **Objective:** Maximize profit, keep customers happy, and manage inventory efficiently.  
+
+        Click the **“Close Instructions”** button below to start playing the game.
+        """)
+        if st.button("Close Instructions"):
+            st.session_state.show_instructions = False
 
 # ---------------------- SCM STAGES ---------------------- #
 st.markdown("""
@@ -156,4 +180,5 @@ with st.expander("🧾 Game Log", expanded=False):
             st.markdown(f"<div class='log-box'>{msg}</div>", unsafe_allow_html=True)
     else:
         st.info("No game activity yet. Play the stages to see logs here.")
+
 
