@@ -116,13 +116,6 @@ facts = [
 ]
 st.markdown(f"<div class='fact-box'>{random.choice(facts)}</div>", unsafe_allow_html=True)
 
-# ------------------ GAME LOG ------------------ #
-st.markdown("---")
-# Collapsible log in top-right corner
-with st.expander("🧾 Game Log", expanded=False):
-    for msg in reversed(st.session_state.messages):
-        st.markdown(f"<div class='log-box'>{msg}</div>", unsafe_allow_html=True)
-
 # ------------------ DAILY SUPPLY CHAIN NEWS ------------------ #
 st.markdown("---")
 st.markdown("<div class='section-title'>📰 Daily Supply Chain News</div>", unsafe_allow_html=True)
@@ -163,3 +156,4 @@ with st.expander("🧾 Game Log", expanded=False):
             st.markdown(f"<div class='log-box'>{msg}</div>", unsafe_allow_html=True)
     else:
         st.info("No game activity yet. Play the stages to see logs here.")
+
