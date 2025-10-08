@@ -95,29 +95,33 @@ facts = [
 ]
 st.info(random.choice(facts))
 
-# ---------------------- LIVE SUPPLY CHAIN NEWS ----------------------
+# ------------------ SUPPLY CHAIN NEWS ------------------ #
 st.markdown("---")
-st.subheader("📰 Latest in Supply Chain Management")
-
-API_KEY = "pub_e4d7b2dfecaa4b4db0de9a55242cd38f"
-url = f"https://newsdata.io/api/1/news?apikey={API_KEY}&q=supply%20chain%20management&language=en"
+st.markdown("<div class='section-title'>📰 Supply Chain News</div>", unsafe_allow_html=True)
 
 try:
-    response = requests.get(url)
-    data = response.json()
-
-    if "results" in data:
-        for i, article in enumerate(data["results"][:3]):
+    NEWS_API = "https://newsdata.io/api/1/news?apikey=pub_e4d7b2dfecaa4b4db0de9a55242cd38f&q=supply%20chain%20management&language=en"
+    response = requests.get(NEWS_API)
+    if response.status_code == 200:
+        articles = response.json().get("results", [])
+        if articles:
+            article = articles[0]  # Only the first article
             title = article.get("title", "No title")
             description = article.get("description", "")
             short_desc = " ".join(description.split()[:50]) + "..." if description else "No description available."
             link = article.get("link", "#")
 
-            st.markdown(f"**{title}**")
-            st.write(short_desc)
-            st.markdown(f"[Read more →]({link})")
-            st.markdown("---")
+            st.markdown(f"""
+                <div class='news-box'>
+                    <b>{title}</b><br>
+                    {short_desc} <a href="{link}" target="_blank">Read more</a>
+                </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.warning("No live news available right now. Try again later.")
     else:
-        st.warning("No live news available right now. Try again later.")
+        st.warning("⚠️ Could not fetch news right now.")
 except Exception as e:
     st.error(f"Error fetching news: {e}")
+
+
