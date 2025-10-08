@@ -87,9 +87,6 @@ with st.expander("🎮 How to Play This Game", expanded=st.session_state.show_in
     Click **Close Instructions** to hide this section.
     """)
 
-    if st.button("Close Instructions"):
-        st.session_state.show_instructions = False
-
 
 # ---------------------- SCM STAGES ---------------------- #
 st.markdown("""
@@ -209,6 +206,7 @@ with st.expander("🧾 Game Log", expanded=False):
             st.markdown(f"<div class='log-box'>{msg}</div>", unsafe_allow_html=True)
     else:
         st.info("No game activity yet. Play the stages to see logs here.")
+
 
 
 
