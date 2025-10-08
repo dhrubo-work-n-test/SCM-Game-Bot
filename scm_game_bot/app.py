@@ -38,6 +38,59 @@ if "messages" not in st.session_state:
 st.title("🤖 SCM Game Bot – Experiential Learning for Supply Chain Consultants")
 st.markdown("Welcome to the **SCM Game Bot**! Step into the shoes of a Supply Chain Consultant and navigate the 5 critical stages below.")
 
+# ------------------ WELCOME / HOW TO PLAY DROP-DOWN ------------------ #
+if "show_instructions" not in st.session_state:
+    st.session_state.show_instructions = True
+
+# Expander acts as a dropdown
+with st.expander("🎮 How to Play This Game", expanded=st.session_state.show_instructions):
+    st.markdown("""
+    **Welcome to the SCM Game Bot!**  
+
+    In this interactive simulation, you take the role of a **Supply Chain Consultant**.  
+    Your goal is to manage a company’s supply chain efficiently across **five critical stages**:
+
+    ### 1️⃣ Planning Stage
+    - Adjust forecast demand using the slider.  
+    - Predict the quantity of products needed to meet customer demand.  
+    - Click **Run Planning Stage** to apply your forecast.
+
+    ### 2️⃣ Sourcing Stage
+    - Choose a supplier from the dropdown list.  
+    - Each supplier has different **costs** and **reliability ratings**.  
+    - Click **Run Sourcing Stage** to finalize your supplier.
+
+    ### 3️⃣ Manufacturing Stage
+    - Select a manufacturing plant and units to produce.  
+    - Click **Run Manufacturing Stage** to produce goods.
+
+    ### 4️⃣ Delivery / Logistics Stage
+    - Choose a delivery mode (Air, Sea, Road).  
+    - Click **Run Delivery Stage** to dispatch products.
+
+    ### 5️⃣ Returns Stage
+    - Set the expected return rate for products.  
+    - Click **Run Returns Stage** to process returns.
+
+    ### ✅ Evaluate Week
+    - Click **Evaluate Week** after completing all stages.  
+    - Review **Revenue, Profit, and Remaining Inventory**.
+
+    ### 🏆 Performance Metrics
+    - Total Profit, Customer Satisfaction, Inventory remaining.
+
+    **Tips:**  
+    - Balance cost and efficiency.  
+    - Avoid overstocking or underproducing.  
+    - Monitor supplier reliability and delivery carefully.
+
+    Click **Close Instructions** to hide this section.
+    """)
+
+    if st.button("Close Instructions"):
+        st.session_state.show_instructions = False
+
+
 # ---------------------- SCM STAGES ---------------------- #
 st.markdown("""
 ### 🏗️ Supply Chain Stages:
@@ -156,5 +209,6 @@ with st.expander("🧾 Game Log", expanded=False):
             st.markdown(f"<div class='log-box'>{msg}</div>", unsafe_allow_html=True)
     else:
         st.info("No game activity yet. Play the stages to see logs here.")
+
 
 
