@@ -1,0 +1,11 @@
+product_id,product_name,base_monthly_demand,unit_cost,sell_price,holding_cost_per_unit_per_month
+P01,Product_1,1426,20.93,27.34,0.8
+P02,Product_2,1344,8.12,26.24,0.15
+P03,Product_3,387,11.67,25.71,0.69
+P04,Product_4,1069,19.44,57.54,0.1
+P05,Product_5,1255,8.67,32.17,0.57
+P06,Product_6,1047,5.46,40.99,0.46
+P07,Product_7,999,12.33,38.24,0.81
+P08,Product_8,862,12.65,59.33,0.52
+P09,Product_9,946,8.41,22.6,0.95
+P10,Product_10,615,16.27,35.42,0.11
