@@ -1,139 +1,196 @@
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), 'logic'))
 
 import streamlit as st
-import pandas as pd, json, os
-from logic.sim_engine import simulate_planning, simulate_sourcing, simulate_manufacturing, simulate_delivery, simulate_returns
+import pandas as pd
+import numpy as np
+from sim_engine import (
+    simulate_planning,
+    simulate_sourcing,
+    simulate_manufacturing,
+    simulate_delivery,
+    simulate_returns
+)
 
-BASE = os.path.join(os.path.dirname(__file__), "")
-
-# Load datasets
-products = pd.read_csv(os.path.join(BASE, "products.csv"))
-suppliers = pd.read_csv(os.path.join(BASE, "suppliers.csv"))
-demand = pd.read_csv(os.path.join(BASE, "demand_timeseries.csv"))
-scenarios = pd.read_csv(os.path.join(BASE, "scenarios.csv"))
-
-# --- UI ---
+# ------------------------------
+# APP CONFIGURATION
+# ------------------------------
 st.set_page_config(page_title="SCM Game Bot", layout="wide")
-st.title("🔮 SCM Game Bot — Supply Chain Numerical Simulator (Streamlit Prototype)")
-st.markdown("### How to play\n1. Read the stage instructions shown on the right.\n2. Use sliders and inputs to make numeric decisions.\n3. Click **Simulate Stage** to apply decisions and see immediate metrics.\n4. Progress through the 5 stages. Your cumulative performance will appear in the dashboard.\n\n---")
 
-# initialize session state
-if "stage" not in st.session_state:
+st.title("🧩 SCM Game Bot – Experiential Learning for Supply Chain Consultants")
+
+st.markdown("""
+### 🎮 Welcome to the Supply Chain Simulation Game!
+
+You are stepping into the role of a **Supply Chain Consultant** for a manufacturing company.
+Your goal is to **maximize total profit** while maintaining **inventory balance** and **customer satisfaction**.
+
+#### 🧭 How to Play
+1. The game progresses through 5 key stages of Supply Chain Management:
+   - **Planning**
+   - **Sourcing**
+   - **Manufacturing**
+   - **Delivery / Logistics**
+   - **Returns / After-Sales**
+
+2. In each stage, you’ll make **numeric decisions** using sliders (e.g., how much to produce, source, or deliver).
+
+3. The bot will simulate the impact and update your performance metrics:
+   - 💰 Profit
+   - 📦 Inventory Level
+   - 🚚 Customer Service (based on stockouts and delays)
+
+4. At the end, you’ll see your **total performance summary** and can download your report.
+---
+""")
+
+# ------------------------------
+# SESSION STATE INITIALIZATION
+# ------------------------------
+if 'stage' not in st.session_state:
     st.session_state.stage = 1
-if "metrics" not in st.session_state:
-    st.session_state.metrics = {"profit":0.0, "inventory": 0, "revenue":0.0, "costs":0.0, "sold":0, "lost_sales":0}
-if "history" not in st.session_state:
-    st.session_state.history = []
+if 'results' not in st.session_state:
+    st.session_state.results = []
 
-col1, col2 = st.columns([2,1])
+# ------------------------------
+# GLOBAL METRICS
+# ------------------------------
+if 'profit' not in st.session_state:
+    st.session_state.profit = 0
+if 'inventory' not in st.session_state:
+    st.session_state.inventory = 1000  # Starting inventory
+if 'cost' not in st.session_state:
+    st.session_state.cost = 0
+if 'revenue' not in st.session_state:
+    st.session_state.revenue = 0
+if 'lost_sales' not in st.session_state:
+    st.session_state.lost_sales = 0
 
-with col2:
-    st.header("Stage Instructions")
-    stage_instructions = {
-        1: "Planning: Decide order quantities, safety stock and whether to expedite. You will see immediate effects on inventory, cost and sales.",
-        2: "Sourcing: Choose supplier profile (cost vs reliability). This affects lead times and future costs.",
-        3: "Manufacturing: Choose production volume, overtime and capacity increases.",
-        4: "Delivery: Choose transport mode and decide on express shipping for critical shipments.",
-        5: "Returns: Set return policy parameters and refurbishment decisions."
-    }
-    st.info(stage_instructions.get(st.session_state.stage, "Complete"))
 
-with col1:
-    # Product selector & scenario sample
-    product = st.selectbox("Select product to play with", products["product_id"].tolist())
-    prod_row = products[products["product_id"]==product].iloc[0].to_dict()
-    st.write("Product summary:", prod_row)
+# ------------------------------
+# STAGE 1 – PLANNING
+# ------------------------------
+if st.session_state.stage == 1:
+    st.header("📅 Stage 1: Planning")
+    st.info("Objective: Forecast demand and set production targets based on expected sales and inventory goals.")
 
-    # Show a sample scenario (random)
-    sample_scn = scenarios.sample(1).iloc[0].to_dict()
-    st.write("Sample scenario (random):", sample_scn)
+    demand_forecast = st.slider("Expected Demand (units)", 500, 2000, 1200, 50)
+    production_target = st.slider("Production Plan (units)", 500, 2000, 1000, 50)
+    safety_stock = st.slider("Safety Stock Level (units)", 0, 500, 100, 10)
 
-    # Stage-specific controls
-    if st.session_state.stage == 1:
-        st.subheader("Planning Decisions")
-        order_qty = st.slider("Order quantity (units)", min_value=0, max_value=5000, value=prod_row["base_monthly_demand"], step=50)
-        safety_stock = st.slider("Safety stock (units)", min_value=0, max_value=2000, value=100, step=10)
-        expedite = st.checkbox("Expedite (expensive)", value=False)
-        supplier_choice = st.selectbox("Choose supplier", suppliers["supplier_id"].tolist())
-        supplier_row = suppliers[suppliers["supplier_id"]==supplier_choice].iloc[0].to_dict()
-        if st.button("Simulate Stage"):
-            decision = {
-                "order_qty": order_qty,
-                "safety_stock": safety_stock,
-                "expediting": expedite,
-                "supplier_cost_mult": supplier_row["cost_multiplier"],
-                "lead_time_days": supplier_row["lead_time_days_mean"],
-                "transport_cost": 0.0
-            }
-            # pick demand for current month for product (latest month)
-            demand_row = demand[demand["product_id"]==product].sort_values("month").iloc[-1]
-            result = simulate_planning(prod_row, decision, int(demand_row["demand"]), {"inventory": st.session_state.metrics["inventory"], "profit": st.session_state.metrics["profit"], "inventory_before": st.session_state.metrics["inventory"]})
-            # update
-            for k in ["inventory","profit","revenue","costs","sold","lost_sales"]:
-                st.session_state.metrics[k] = result.get(k, st.session_state.metrics.get(k,0))
-            st.session_state.history.append(("Planning", decision, result))
-            st.success(f"Stage result — Profit Δ: {result['profit']:.2f}, Inventory: {result['inventory']}")
-            st.session_state.stage += 1
+    if st.button("Simulate Planning Stage"):
+        result = simulate_planning(demand_forecast, production_target, safety_stock)
+        st.session_state.results.append(result)
+        for k, v in result.items():
+            if k in st.session_state:
+                st.session_state[k] += v
+        st.session_state.stage = 2
+        st.experimental_rerun()
 
-    elif st.session_state.stage == 2:
-        st.subheader("Sourcing Decisions")
-        supplier_choice = st.selectbox("Choose supplier", suppliers["supplier_id"].tolist())
-        supplier_row = suppliers[suppliers["supplier_id"]==supplier_choice].iloc[0].to_dict()
-        reliability = st.slider("Negotiate reliability (%)", min_value=60, max_value=99, value=int(supplier_row["reliability_pct"]))
-        if st.button("Simulate Stage"):
-            decision = {"supplier_cost_mult": supplier_row["cost_multiplier"], "supplier_reliability": reliability}
-            result = simulate_sourcing(prod_row, decision, st.session_state.metrics)
-            st.session_state.history.append(("Sourcing", decision, result))
-            st.success("Sourcing simulated. Supplier parameters updated (affects future stages).")
-            st.session_state.stage += 1
+# ------------------------------
+# STAGE 2 – SOURCING
+# ------------------------------
+elif st.session_state.stage == 2:
+    st.header("🏭 Stage 2: Sourcing")
+    st.info("Objective: Select suppliers and manage procurement costs, lead times, and reliability.")
 
-    elif st.session_state.stage == 3:
-        st.subheader("Manufacturing Decisions")
-        produce_qty = st.slider("Produce units (in-house)", min_value=0, max_value=5000, value=0, step=50)
-        overtime = st.checkbox("Allow overtime (costly)", value=False)
-        if st.button("Simulate Stage"):
-            decision = {"produce_qty": produce_qty, "overtime": overtime}
-            result = simulate_manufacturing(prod_row, decision, st.session_state.metrics)
-            # update metrics
-            st.session_state.metrics["inventory"] = result.get("inventory", st.session_state.metrics["inventory"])
-            st.session_state.metrics["profit"] = result.get("profit", st.session_state.metrics["profit"])
-            st.session_state.history.append(("Manufacturing", decision, result))
-            st.success(f"Manufacturing simulated. Inventory now {st.session_state.metrics['inventory']} units.")
-            st.session_state.stage += 1
+    supplier_quality = st.slider("Supplier Quality Score", 50, 100, 80, 5)
+    supplier_cost = st.slider("Average Procurement Cost per Unit ($)", 5, 20, 10, 1)
+    order_volume = st.slider("Order Volume (units)", 500, 2000, 1000, 50)
 
-    elif st.session_state.stage == 4:
-        st.subheader("Delivery Decisions")
-        transport_mode = st.selectbox("Transport mode", ["sea","road","air"])
-        express_pct = st.slider("Express shipping allocation (%)", min_value=0, max_value=100, value=0)
-        if st.button("Simulate Stage"):
-            decision = {"transport_mode": transport_mode, "express_pct": express_pct}
-            result = simulate_delivery(prod_row, decision, st.session_state.metrics)
-            st.session_state.metrics["profit"] = result.get("profit", st.session_state.metrics["profit"])
-            st.session_state.history.append(("Delivery", decision, result))
-            st.success(f"Delivery simulated. Transport cost: {result['transport_cost']:.2f}")
-            st.session_state.stage += 1
+    if st.button("Simulate Sourcing Stage"):
+        result = simulate_sourcing(supplier_quality, supplier_cost, order_volume)
+        st.session_state.results.append(result)
+        for k, v in result.items():
+            if k in st.session_state:
+                st.session_state[k] += v
+        st.session_state.stage = 3
+        st.experimental_rerun()
 
-    elif st.session_state.stage == 5:
-        st.subheader("Returns & After-sales Decisions")
-        return_rate = st.slider("Expected return rate (%)", min_value=0.0, max_value=20.0, value=2.0, step=0.5)
-        put_back_pct = st.slider("Refurbish and put back to inventory (%)", min_value=0.0, max_value=100.0, value=50.0, step=5.0)
-        if st.button("Simulate Stage"):
-            decision = {"return_rate": return_rate/100.0, "put_back_pct": put_back_pct/100.0}
-            result = simulate_returns(prod_row, decision, st.session_state.metrics)
-            st.session_state.metrics["profit"] = result.get("profit", st.session_state.metrics["profit"])
-            st.session_state.metrics["inventory"] = result.get("inventory", st.session_state.metrics["inventory"])
-            st.session_state.history.append(("Returns", decision, result))
-            st.success("Returns stage simulated. Game complete!")
-            st.session_state.stage = 6
+# ------------------------------
+# STAGE 3 – MANUFACTURING
+# ------------------------------
+elif st.session_state.stage == 3:
+    st.header("⚙️ Stage 3: Manufacturing")
+    st.info("Objective: Optimize production efficiency and manage labor and machinery utilization.")
 
-    else:
-        st.subheader("Game Complete — Final Performance")
-        st.write("### Cumulative metrics")
-        st.write(st.session_state.metrics)
-        st.write("### Stage history (last 10)")
-        for h in st.session_state.history[-10:]:
-            st.write(h)
+    production_efficiency = st.slider("Production Efficiency (%)", 60, 100, 85, 5)
+    labor_hours = st.slider("Labor Hours Allocated", 100, 1000, 500, 50)
+    machine_utilization = st.slider("Machine Utilization (%)", 50, 100, 80, 5)
 
-        # Download results
-        if st.button("Download game results (CSV)"):
-            df_hist = pd.DataFrame([{"stage":h[0], **h[1], **({"result":h[2]})} for h in st.session_state.history])
-            st.download_button("Download results", df_hist.to_csv(index=False), file_name="scm_game_results.csv", mime="text/csv")
+    if st.button("Simulate Manufacturing Stage"):
+        result = simulate_manufacturing(production_efficiency, labor_hours, machine_utilization)
+        st.session_state.results.append(result)
+        for k, v in result.items():
+            if k in st.session_state:
+                st.session_state[k] += v
+        st.session_state.stage = 4
+        st.experimental_rerun()
+
+# ------------------------------
+# STAGE 4 – DELIVERY / LOGISTICS
+# ------------------------------
+elif st.session_state.stage == 4:
+    st.header("🚚 Stage 4: Delivery / Logistics")
+    st.info("Objective: Manage transportation, delivery costs, and customer satisfaction.")
+
+    transport_mode = st.selectbox("Transport Mode", ["Truck", "Rail", "Air"])
+    delivery_speed = st.slider("Delivery Speed (Days)", 1, 10, 5)
+    logistics_cost = st.slider("Logistics Cost per Shipment ($)", 1000, 10000, 5000, 500)
+
+    if st.button("Simulate Delivery Stage"):
+        result = simulate_delivery(transport_mode, delivery_speed, logistics_cost)
+        st.session_state.results.append(result)
+        for k, v in result.items():
+            if k in st.session_state:
+                st.session_state[k] += v
+        st.session_state.stage = 5
+        st.experimental_rerun()
+
+# ------------------------------
+# STAGE 5 – RETURNS / AFTER-SALES
+# ------------------------------
+elif st.session_state.stage == 5:
+    st.header("🔁 Stage 5: Returns / After-Sales Service")
+    st.info("Objective: Handle customer returns efficiently and manage cost impact.")
+
+    return_rate = st.slider("Return Rate (%)", 0, 20, 5, 1)
+    refurbish_cost = st.slider("Refurbish Cost per Unit ($)", 10, 100, 30, 5)
+    customer_service_score = st.slider("Customer Service Investment ($)", 1000, 10000, 5000, 500)
+
+    if st.button("Simulate Returns Stage"):
+        result = simulate_returns(return_rate, refurbish_cost, customer_service_score)
+        st.session_state.results.append(result)
+        for k, v in result.items():
+            if k in st.session_state:
+                st.session_state[k] += v
+        st.session_state.stage = 6
+        st.experimental_rerun()
+
+# ------------------------------
+# FINAL RESULTS DASHBOARD
+# ------------------------------
+elif st.session_state.stage == 6:
+    st.header("🏁 Game Summary – Your Performance Metrics")
+
+    st.success("🎉 Congratulations! You’ve completed all stages of the SCM Game Bot simulation.")
+
+    col1, col2, col3 = st.columns(3)
+    col1.metric("💰 Total Profit", f"${st.session_state.profit:,.2f}")
+    col2.metric("📦 Final Inventory", f"{st.session_state.inventory:.0f} units")
+    col3.metric("🚫 Lost Sales", f"{st.session_state.lost_sales:.0f} units")
+
+    col4, col5 = st.columns(2)
+    col4.metric("📈 Total Revenue", f"${st.session_state.revenue:,.2f}")
+    col5.metric("💸 Total Cost", f"${st.session_state.cost:,.2f}")
+
+    df = pd.DataFrame(st.session_state.results)
+    st.dataframe(df)
+
+    csv = df.to_csv(index=False).encode('utf-8')
+    st.download_button("📥 Download Results as CSV", data=csv, file_name="scm_game_results.csv", mime='text/csv')
+
+    if st.button("🔄 Restart Game"):
+        for key in list(st.session_state.keys()):
+            del st.session_state[key]
+        st.experimental_rerun()
