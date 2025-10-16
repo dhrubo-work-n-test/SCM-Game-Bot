@@ -1,0 +1,11 @@
+product_id,product_name,category,unit_cost,price,base_monthly_demand,lead_time_days,safety_stock
+P001,HOM_1,Home Appliance,35.74,84.94,1812,10,325
+P002,OFF_2,Office Supplies,186.37,319.76,1234,21,93
+P003,APP_3,Apparel,177.59,322.91,1436,23,180
+P004,ELE_4,Electronics,334.97,587.62,664,18,114
+P005,AUT_5,Automotive,930.42,1349.16,469,26,86
+P006,FOO_6,Food,4.94,10.88,946,22,221
+P007,PHA_7,Pharma,47.58,121.59,1788,16,142
+P008,HOM_8,Home Appliance,21.92,42.35,1965,27,443
+P009,FOO_9,Food,0.8,1.54,279,25,56
+P010,FOO_10,Food,4.65,9.72,389,25,58

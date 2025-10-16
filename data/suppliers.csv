@@ -1,0 +1,9 @@
+supplier_id,supplier_name,region,reliability,avg_lead_time_days,cost_multiplier,moq
+S001,Supplier_1,China,0.93,9,1.31,200
+S002,Supplier_2,India,0.95,20,1.3,50
+S003,Supplier_3,Vietnam,0.73,28,0.93,500
+S004,Supplier_4,Poland,0.96,9,0.99,50
+S005,Supplier_5,Mexico,0.71,30,1.38,100
+S006,Supplier_6,USA,0.86,5,1.07,200
+S007,Supplier_7,Germany,0.76,12,1.03,50
+S008,Supplier_8,Bangladesh,0.98,33,1.39,500

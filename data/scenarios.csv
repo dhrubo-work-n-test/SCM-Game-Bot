@@ -1,0 +1,401 @@
+scenario_id,product_id,month,event_type,description,severity,affected_supplier
+SC0001,P001,2023-03-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0002,P005,2024-02-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0003,P002,2023-07-01,factory_shutdown,Factory temporary shutdown,3,S004
+SC0004,P006,2023-04-01,factory_shutdown,Factory temporary shutdown,2,S004
+SC0005,P006,2025-12-01,supplier_delay,Supplier delay due to port congestion,1,S001
+SC0006,P006,2024-01-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0007,P008,2023-02-01,quality_issue,Batch quality issue; returns expected,5,S002
+SC0008,P001,2025-02-01,quality_issue,Batch quality issue; returns expected,2,S002
+SC0009,P009,2024-11-01,none,No event (normal operations),4,
+SC0010,P006,2023-08-01,supplier_delay,Supplier delay due to port congestion,3,S005
+SC0011,P010,2024-02-01,quality_issue,Batch quality issue; returns expected,1,S007
+SC0012,P003,2024-04-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0013,P008,2023-08-01,supplier_delay,Supplier delay due to port congestion,3,S001
+SC0014,P006,2025-12-01,transport_strike,Transport strike affecting logistics,3,
+SC0015,P004,2023-06-01,port_closure,Major port closure delays shipments,3,S004
+SC0016,P010,2024-06-01,none,No event (normal operations),2,
+SC0017,P009,2023-12-01,none,No event (normal operations),5,
+SC0018,P005,2025-10-01,port_closure,Major port closure delays shipments,1,S002
+SC0019,P008,2025-11-01,none,No event (normal operations),2,
+SC0020,P006,2025-02-01,none,No event (normal operations),2,
+SC0021,P008,2025-04-01,demand_spike,Unexpected demand surge (promotion/season),4,
+SC0022,P009,2024-10-01,supplier_delay,Supplier delay due to port congestion,5,S006
+SC0023,P005,2024-11-01,quality_issue,Batch quality issue; returns expected,2,S006
+SC0024,P001,2025-11-01,quality_issue,Batch quality issue; returns expected,1,S008
+SC0025,P004,2023-11-01,currency_shock,Currency fluctuation increases cost,2,
+SC0026,P008,2024-10-01,currency_shock,Currency fluctuation increases cost,1,
+SC0027,P009,2024-12-01,currency_shock,Currency fluctuation increases cost,4,
+SC0028,P002,2025-12-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0029,P008,2024-06-01,transport_strike,Transport strike affecting logistics,3,
+SC0030,P005,2023-10-01,currency_shock,Currency fluctuation increases cost,5,
+SC0031,P004,2024-11-01,supplier_delay,Supplier delay due to port congestion,2,S008
+SC0032,P007,2025-09-01,transport_strike,Transport strike affecting logistics,2,
+SC0033,P003,2024-10-01,factory_shutdown,Factory temporary shutdown,5,S006
+SC0034,P003,2024-08-01,quality_issue,Batch quality issue; returns expected,2,S006
+SC0035,P005,2025-09-01,supplier_delay,Supplier delay due to port congestion,1,S002
+SC0036,P007,2023-03-01,factory_shutdown,Factory temporary shutdown,3,S004
+SC0037,P005,2024-02-01,quality_issue,Batch quality issue; returns expected,2,S005
+SC0038,P003,2024-02-01,quality_issue,Batch quality issue; returns expected,1,S007
+SC0039,P001,2025-05-01,transport_strike,Transport strike affecting logistics,2,
+SC0040,P005,2024-05-01,transport_strike,Transport strike affecting logistics,3,
+SC0041,P001,2023-07-01,supplier_delay,Supplier delay due to port congestion,2,S005
+SC0042,P005,2024-01-01,factory_shutdown,Factory temporary shutdown,3,S008
+SC0043,P006,2023-12-01,transport_strike,Transport strike affecting logistics,3,
+SC0044,P007,2024-09-01,quality_issue,Batch quality issue; returns expected,2,S001
+SC0045,P008,2023-09-01,currency_shock,Currency fluctuation increases cost,1,
+SC0046,P008,2024-12-01,port_closure,Major port closure delays shipments,3,S001
+SC0047,P003,2025-02-01,transport_strike,Transport strike affecting logistics,3,
+SC0048,P008,2025-05-01,quality_issue,Batch quality issue; returns expected,2,S008
+SC0049,P007,2023-05-01,transport_strike,Transport strike affecting logistics,2,
+SC0050,P007,2024-04-01,transport_strike,Transport strike affecting logistics,1,
+SC0051,P008,2024-09-01,factory_shutdown,Factory temporary shutdown,1,S002
+SC0052,P010,2023-01-01,quality_issue,Batch quality issue; returns expected,4,S004
+SC0053,P002,2025-10-01,port_closure,Major port closure delays shipments,1,S005
+SC0054,P003,2024-12-01,port_closure,Major port closure delays shipments,1,S004
+SC0055,P003,2024-09-01,none,No event (normal operations),1,
+SC0056,P009,2023-05-01,currency_shock,Currency fluctuation increases cost,4,
+SC0057,P009,2024-08-01,transport_strike,Transport strike affecting logistics,2,
+SC0058,P009,2025-04-01,none,No event (normal operations),4,
+SC0059,P008,2024-10-01,factory_shutdown,Factory temporary shutdown,5,S001
+SC0060,P001,2023-08-01,port_closure,Major port closure delays shipments,2,S006
+SC0061,P001,2023-10-01,quality_issue,Batch quality issue; returns expected,4,S002
+SC0062,P007,2023-08-01,currency_shock,Currency fluctuation increases cost,1,
+SC0063,P005,2024-03-01,port_closure,Major port closure delays shipments,3,S006
+SC0064,P004,2025-08-01,transport_strike,Transport strike affecting logistics,3,
+SC0065,P001,2025-09-01,transport_strike,Transport strike affecting logistics,3,
+SC0066,P003,2023-07-01,demand_spike,Unexpected demand surge (promotion/season),5,
+SC0067,P004,2024-05-01,transport_strike,Transport strike affecting logistics,2,
+SC0068,P008,2023-04-01,port_closure,Major port closure delays shipments,3,S002
+SC0069,P009,2023-08-01,supplier_delay,Supplier delay due to port congestion,3,S004
+SC0070,P004,2024-08-01,port_closure,Major port closure delays shipments,4,S006
+SC0071,P004,2024-05-01,quality_issue,Batch quality issue; returns expected,2,S007
+SC0072,P005,2024-01-01,currency_shock,Currency fluctuation increases cost,4,
+SC0073,P009,2025-02-01,supplier_delay,Supplier delay due to port congestion,2,S004
+SC0074,P008,2024-07-01,factory_shutdown,Factory temporary shutdown,4,S005
+SC0075,P007,2024-09-01,currency_shock,Currency fluctuation increases cost,3,
+SC0076,P001,2024-06-01,quality_issue,Batch quality issue; returns expected,2,S005
+SC0077,P007,2023-04-01,none,No event (normal operations),3,
+SC0078,P003,2023-02-01,port_closure,Major port closure delays shipments,3,S001
+SC0079,P004,2025-12-01,none,No event (normal operations),1,
+SC0080,P008,2023-07-01,transport_strike,Transport strike affecting logistics,4,
+SC0081,P009,2025-02-01,factory_shutdown,Factory temporary shutdown,5,S003
+SC0082,P008,2025-03-01,port_closure,Major port closure delays shipments,1,S007
+SC0083,P003,2023-06-01,supplier_delay,Supplier delay due to port congestion,2,S004
+SC0084,P003,2023-06-01,currency_shock,Currency fluctuation increases cost,3,
+SC0085,P009,2025-10-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0086,P004,2025-08-01,factory_shutdown,Factory temporary shutdown,1,S001
+SC0087,P002,2023-06-01,port_closure,Major port closure delays shipments,3,S003
+SC0088,P008,2023-08-01,currency_shock,Currency fluctuation increases cost,2,
+SC0089,P006,2024-12-01,port_closure,Major port closure delays shipments,1,S003
+SC0090,P002,2023-09-01,supplier_delay,Supplier delay due to port congestion,2,S004
+SC0091,P002,2024-08-01,none,No event (normal operations),1,
+SC0092,P008,2024-11-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0093,P001,2024-05-01,currency_shock,Currency fluctuation increases cost,1,
+SC0094,P001,2025-08-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0095,P003,2024-09-01,supplier_delay,Supplier delay due to port congestion,3,S003
+SC0096,P006,2024-05-01,currency_shock,Currency fluctuation increases cost,1,
+SC0097,P007,2023-01-01,supplier_delay,Supplier delay due to port congestion,4,S003
+SC0098,P010,2024-08-01,supplier_delay,Supplier delay due to port congestion,2,S008
+SC0099,P010,2025-04-01,currency_shock,Currency fluctuation increases cost,5,
+SC0100,P003,2023-11-01,supplier_delay,Supplier delay due to port congestion,5,S007
+SC0101,P008,2025-11-01,port_closure,Major port closure delays shipments,5,S008
+SC0102,P007,2024-11-01,port_closure,Major port closure delays shipments,3,S002
+SC0103,P008,2023-09-01,transport_strike,Transport strike affecting logistics,2,
+SC0104,P005,2024-04-01,transport_strike,Transport strike affecting logistics,4,
+SC0105,P006,2023-02-01,currency_shock,Currency fluctuation increases cost,5,
+SC0106,P009,2025-07-01,none,No event (normal operations),1,
+SC0107,P004,2023-12-01,none,No event (normal operations),5,
+SC0108,P005,2024-04-01,quality_issue,Batch quality issue; returns expected,2,S006
+SC0109,P004,2025-03-01,demand_spike,Unexpected demand surge (promotion/season),5,
+SC0110,P009,2023-10-01,currency_shock,Currency fluctuation increases cost,4,
+SC0111,P004,2024-06-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0112,P002,2024-04-01,currency_shock,Currency fluctuation increases cost,3,
+SC0113,P005,2025-03-01,supplier_delay,Supplier delay due to port congestion,2,S003
+SC0114,P008,2025-01-01,transport_strike,Transport strike affecting logistics,1,
+SC0115,P009,2024-02-01,quality_issue,Batch quality issue; returns expected,2,S002
+SC0116,P006,2025-09-01,supplier_delay,Supplier delay due to port congestion,2,S004
+SC0117,P003,2024-09-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0118,P003,2024-07-01,none,No event (normal operations),1,
+SC0119,P004,2023-01-01,factory_shutdown,Factory temporary shutdown,4,S002
+SC0120,P010,2024-08-01,supplier_delay,Supplier delay due to port congestion,2,S004
+SC0121,P009,2023-02-01,transport_strike,Transport strike affecting logistics,3,
+SC0122,P001,2024-11-01,quality_issue,Batch quality issue; returns expected,4,S004
+SC0123,P009,2024-06-01,transport_strike,Transport strike affecting logistics,2,
+SC0124,P002,2023-01-01,currency_shock,Currency fluctuation increases cost,2,
+SC0125,P005,2023-05-01,transport_strike,Transport strike affecting logistics,4,
+SC0126,P009,2023-01-01,transport_strike,Transport strike affecting logistics,4,
+SC0127,P003,2024-02-01,transport_strike,Transport strike affecting logistics,5,
+SC0128,P010,2025-08-01,transport_strike,Transport strike affecting logistics,4,
+SC0129,P009,2023-07-01,transport_strike,Transport strike affecting logistics,3,
+SC0130,P009,2024-02-01,supplier_delay,Supplier delay due to port congestion,4,S005
+SC0131,P009,2023-08-01,transport_strike,Transport strike affecting logistics,2,
+SC0132,P008,2024-09-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0133,P002,2024-12-01,quality_issue,Batch quality issue; returns expected,2,S002
+SC0134,P005,2024-09-01,transport_strike,Transport strike affecting logistics,1,
+SC0135,P007,2025-08-01,factory_shutdown,Factory temporary shutdown,2,S001
+SC0136,P008,2023-11-01,quality_issue,Batch quality issue; returns expected,1,S001
+SC0137,P005,2025-12-01,port_closure,Major port closure delays shipments,5,S004
+SC0138,P004,2024-03-01,quality_issue,Batch quality issue; returns expected,2,S001
+SC0139,P003,2025-11-01,currency_shock,Currency fluctuation increases cost,2,
+SC0140,P003,2024-08-01,quality_issue,Batch quality issue; returns expected,3,S001
+SC0141,P004,2023-11-01,port_closure,Major port closure delays shipments,3,S002
+SC0142,P004,2024-12-01,none,No event (normal operations),1,
+SC0143,P002,2023-03-01,factory_shutdown,Factory temporary shutdown,5,S004
+SC0144,P004,2023-09-01,transport_strike,Transport strike affecting logistics,1,
+SC0145,P008,2024-01-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0146,P007,2024-10-01,supplier_delay,Supplier delay due to port congestion,3,S006
+SC0147,P001,2023-09-01,currency_shock,Currency fluctuation increases cost,2,
+SC0148,P006,2025-07-01,quality_issue,Batch quality issue; returns expected,3,S002
+SC0149,P006,2025-06-01,factory_shutdown,Factory temporary shutdown,1,S001
+SC0150,P010,2025-02-01,demand_spike,Unexpected demand surge (promotion/season),4,
+SC0151,P001,2025-05-01,port_closure,Major port closure delays shipments,3,S006
+SC0152,P010,2023-08-01,transport_strike,Transport strike affecting logistics,5,
+SC0153,P004,2023-12-01,port_closure,Major port closure delays shipments,2,S001
+SC0154,P004,2024-10-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0155,P010,2023-02-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0156,P003,2024-05-01,supplier_delay,Supplier delay due to port congestion,3,S005
+SC0157,P004,2024-08-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0158,P004,2024-09-01,currency_shock,Currency fluctuation increases cost,3,
+SC0159,P001,2023-01-01,transport_strike,Transport strike affecting logistics,1,
+SC0160,P007,2025-10-01,none,No event (normal operations),5,
+SC0161,P003,2024-02-01,demand_spike,Unexpected demand surge (promotion/season),5,
+SC0162,P009,2024-10-01,supplier_delay,Supplier delay due to port congestion,2,S003
+SC0163,P002,2025-11-01,transport_strike,Transport strike affecting logistics,5,
+SC0164,P004,2024-10-01,port_closure,Major port closure delays shipments,2,S007
+SC0165,P006,2024-01-01,currency_shock,Currency fluctuation increases cost,1,
+SC0166,P003,2023-08-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0167,P010,2023-12-01,none,No event (normal operations),3,
+SC0168,P007,2025-10-01,supplier_delay,Supplier delay due to port congestion,1,S001
+SC0169,P006,2023-07-01,currency_shock,Currency fluctuation increases cost,1,
+SC0170,P008,2024-02-01,transport_strike,Transport strike affecting logistics,3,
+SC0171,P006,2023-12-01,port_closure,Major port closure delays shipments,4,S005
+SC0172,P001,2023-12-01,factory_shutdown,Factory temporary shutdown,5,S007
+SC0173,P001,2025-08-01,factory_shutdown,Factory temporary shutdown,1,S001
+SC0174,P005,2024-07-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0175,P008,2023-11-01,quality_issue,Batch quality issue; returns expected,2,S005
+SC0176,P001,2023-04-01,quality_issue,Batch quality issue; returns expected,1,S006
+SC0177,P002,2023-03-01,factory_shutdown,Factory temporary shutdown,4,S002
+SC0178,P002,2024-08-01,transport_strike,Transport strike affecting logistics,2,
+SC0179,P004,2023-08-01,transport_strike,Transport strike affecting logistics,1,
+SC0180,P006,2025-03-01,demand_spike,Unexpected demand surge (promotion/season),4,
+SC0181,P004,2025-04-01,none,No event (normal operations),2,
+SC0182,P005,2025-09-01,none,No event (normal operations),3,
+SC0183,P009,2024-08-01,transport_strike,Transport strike affecting logistics,3,
+SC0184,P008,2023-11-01,currency_shock,Currency fluctuation increases cost,3,
+SC0185,P006,2024-06-01,port_closure,Major port closure delays shipments,4,S004
+SC0186,P007,2025-10-01,supplier_delay,Supplier delay due to port congestion,4,S005
+SC0187,P008,2024-11-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0188,P005,2024-04-01,currency_shock,Currency fluctuation increases cost,1,
+SC0189,P006,2025-05-01,none,No event (normal operations),1,
+SC0190,P001,2025-12-01,currency_shock,Currency fluctuation increases cost,3,
+SC0191,P004,2023-11-01,quality_issue,Batch quality issue; returns expected,2,S007
+SC0192,P001,2024-04-01,none,No event (normal operations),4,
+SC0193,P003,2023-11-01,quality_issue,Batch quality issue; returns expected,2,S003
+SC0194,P007,2023-03-01,currency_shock,Currency fluctuation increases cost,2,
+SC0195,P008,2024-05-01,currency_shock,Currency fluctuation increases cost,1,
+SC0196,P001,2024-02-01,supplier_delay,Supplier delay due to port congestion,4,S005
+SC0197,P010,2025-03-01,currency_shock,Currency fluctuation increases cost,1,
+SC0198,P007,2023-03-01,transport_strike,Transport strike affecting logistics,3,
+SC0199,P010,2023-07-01,currency_shock,Currency fluctuation increases cost,5,
+SC0200,P002,2024-08-01,currency_shock,Currency fluctuation increases cost,2,
+SC0201,P003,2024-11-01,port_closure,Major port closure delays shipments,3,S006
+SC0202,P008,2023-08-01,none,No event (normal operations),3,
+SC0203,P007,2025-10-01,none,No event (normal operations),2,
+SC0204,P008,2025-07-01,transport_strike,Transport strike affecting logistics,5,
+SC0205,P002,2025-04-01,port_closure,Major port closure delays shipments,1,S006
+SC0206,P007,2023-09-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0207,P010,2024-10-01,factory_shutdown,Factory temporary shutdown,1,S007
+SC0208,P005,2024-07-01,demand_spike,Unexpected demand surge (promotion/season),5,
+SC0209,P010,2025-12-01,factory_shutdown,Factory temporary shutdown,2,S006
+SC0210,P004,2023-12-01,port_closure,Major port closure delays shipments,3,S005
+SC0211,P009,2025-06-01,port_closure,Major port closure delays shipments,4,S002
+SC0212,P004,2024-11-01,quality_issue,Batch quality issue; returns expected,2,S007
+SC0213,P004,2025-09-01,supplier_delay,Supplier delay due to port congestion,2,S005
+SC0214,P004,2023-07-01,factory_shutdown,Factory temporary shutdown,3,S008
+SC0215,P002,2023-10-01,factory_shutdown,Factory temporary shutdown,4,S004
+SC0216,P001,2025-02-01,supplier_delay,Supplier delay due to port congestion,3,S002
+SC0217,P008,2025-01-01,port_closure,Major port closure delays shipments,1,S003
+SC0218,P004,2025-05-01,factory_shutdown,Factory temporary shutdown,3,S008
+SC0219,P009,2025-09-01,none,No event (normal operations),3,
+SC0220,P002,2023-03-01,quality_issue,Batch quality issue; returns expected,2,S004
+SC0221,P005,2024-04-01,currency_shock,Currency fluctuation increases cost,3,
+SC0222,P005,2023-04-01,supplier_delay,Supplier delay due to port congestion,5,S004
+SC0223,P006,2023-03-01,none,No event (normal operations),1,
+SC0224,P004,2024-03-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0225,P001,2025-11-01,demand_spike,Unexpected demand surge (promotion/season),1,
+SC0226,P002,2024-10-01,currency_shock,Currency fluctuation increases cost,3,
+SC0227,P009,2025-07-01,none,No event (normal operations),2,
+SC0228,P010,2024-11-01,supplier_delay,Supplier delay due to port congestion,3,S006
+SC0229,P001,2023-09-01,none,No event (normal operations),2,
+SC0230,P004,2024-04-01,factory_shutdown,Factory temporary shutdown,4,S003
+SC0231,P008,2025-02-01,transport_strike,Transport strike affecting logistics,5,
+SC0232,P008,2024-01-01,currency_shock,Currency fluctuation increases cost,3,
+SC0233,P004,2025-11-01,factory_shutdown,Factory temporary shutdown,2,S004
+SC0234,P004,2023-06-01,none,No event (normal operations),2,
+SC0235,P009,2025-11-01,factory_shutdown,Factory temporary shutdown,2,S003
+SC0236,P010,2024-12-01,quality_issue,Batch quality issue; returns expected,2,S004
+SC0237,P002,2025-03-01,none,No event (normal operations),2,
+SC0238,P007,2025-10-01,currency_shock,Currency fluctuation increases cost,2,
+SC0239,P007,2025-12-01,quality_issue,Batch quality issue; returns expected,3,S008
+SC0240,P002,2025-01-01,quality_issue,Batch quality issue; returns expected,3,S004
+SC0241,P008,2025-02-01,currency_shock,Currency fluctuation increases cost,3,
+SC0242,P003,2025-04-01,quality_issue,Batch quality issue; returns expected,4,S004
+SC0243,P007,2025-11-01,none,No event (normal operations),2,
+SC0244,P001,2025-02-01,supplier_delay,Supplier delay due to port congestion,3,S008
+SC0245,P003,2023-03-01,transport_strike,Transport strike affecting logistics,4,
+SC0246,P003,2023-11-01,none,No event (normal operations),3,
+SC0247,P009,2025-03-01,factory_shutdown,Factory temporary shutdown,2,S001
+SC0248,P003,2023-12-01,supplier_delay,Supplier delay due to port congestion,3,S007
+SC0249,P007,2025-11-01,supplier_delay,Supplier delay due to port congestion,3,S007
+SC0250,P008,2023-04-01,demand_spike,Unexpected demand surge (promotion/season),4,
+SC0251,P004,2024-09-01,port_closure,Major port closure delays shipments,2,S008
+SC0252,P001,2023-12-01,supplier_delay,Supplier delay due to port congestion,5,S002
+SC0253,P002,2025-09-01,currency_shock,Currency fluctuation increases cost,2,
+SC0254,P010,2025-11-01,quality_issue,Batch quality issue; returns expected,4,S005
+SC0255,P004,2024-10-01,currency_shock,Currency fluctuation increases cost,1,
+SC0256,P008,2024-07-01,none,No event (normal operations),1,
+SC0257,P006,2025-10-01,currency_shock,Currency fluctuation increases cost,1,
+SC0258,P010,2025-12-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0259,P009,2025-01-01,currency_shock,Currency fluctuation increases cost,2,
+SC0260,P005,2024-08-01,port_closure,Major port closure delays shipments,3,S003
+SC0261,P005,2025-04-01,transport_strike,Transport strike affecting logistics,2,
+SC0262,P008,2025-04-01,transport_strike,Transport strike affecting logistics,1,
+SC0263,P008,2024-04-01,currency_shock,Currency fluctuation increases cost,3,
+SC0264,P010,2024-10-01,none,No event (normal operations),4,
+SC0265,P008,2023-05-01,none,No event (normal operations),2,
+SC0266,P008,2023-05-01,port_closure,Major port closure delays shipments,4,S001
+SC0267,P003,2024-11-01,none,No event (normal operations),5,
+SC0268,P004,2023-09-01,transport_strike,Transport strike affecting logistics,2,
+SC0269,P003,2023-05-01,port_closure,Major port closure delays shipments,3,S004
+SC0270,P003,2025-03-01,quality_issue,Batch quality issue; returns expected,1,S004
+SC0271,P009,2025-12-01,quality_issue,Batch quality issue; returns expected,3,S004
+SC0272,P006,2023-10-01,demand_spike,Unexpected demand surge (promotion/season),1,
+SC0273,P006,2023-04-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0274,P001,2024-09-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0275,P008,2023-08-01,supplier_delay,Supplier delay due to port congestion,1,S002
+SC0276,P005,2025-12-01,supplier_delay,Supplier delay due to port congestion,3,S006
+SC0277,P003,2023-07-01,transport_strike,Transport strike affecting logistics,4,
+SC0278,P005,2025-01-01,quality_issue,Batch quality issue; returns expected,4,S001
+SC0279,P009,2023-12-01,none,No event (normal operations),3,
+SC0280,P007,2024-02-01,factory_shutdown,Factory temporary shutdown,2,S007
+SC0281,P009,2025-07-01,supplier_delay,Supplier delay due to port congestion,2,S002
+SC0282,P002,2025-10-01,quality_issue,Batch quality issue; returns expected,1,S002
+SC0283,P006,2024-11-01,none,No event (normal operations),4,
+SC0284,P002,2023-02-01,port_closure,Major port closure delays shipments,3,S002
+SC0285,P007,2024-12-01,quality_issue,Batch quality issue; returns expected,1,S006
+SC0286,P004,2023-01-01,port_closure,Major port closure delays shipments,2,S006
+SC0287,P003,2023-01-01,quality_issue,Batch quality issue; returns expected,1,S002
+SC0288,P002,2023-07-01,factory_shutdown,Factory temporary shutdown,2,S002
+SC0289,P005,2023-09-01,port_closure,Major port closure delays shipments,4,S004
+SC0290,P003,2024-12-01,port_closure,Major port closure delays shipments,4,S006
+SC0291,P008,2024-06-01,none,No event (normal operations),2,
+SC0292,P004,2023-08-01,port_closure,Major port closure delays shipments,3,S006
+SC0293,P001,2023-10-01,currency_shock,Currency fluctuation increases cost,3,
+SC0294,P001,2024-06-01,factory_shutdown,Factory temporary shutdown,1,S001
+SC0295,P009,2024-03-01,factory_shutdown,Factory temporary shutdown,1,S003
+SC0296,P002,2023-07-01,supplier_delay,Supplier delay due to port congestion,1,S008
+SC0297,P010,2025-11-01,transport_strike,Transport strike affecting logistics,2,
+SC0298,P001,2025-02-01,none,No event (normal operations),5,
+SC0299,P002,2023-09-01,port_closure,Major port closure delays shipments,5,S001
+SC0300,P008,2023-11-01,factory_shutdown,Factory temporary shutdown,1,S002
+SC0301,P009,2023-02-01,factory_shutdown,Factory temporary shutdown,2,S004
+SC0302,P003,2023-03-01,none,No event (normal operations),2,
+SC0303,P001,2025-12-01,none,No event (normal operations),3,
+SC0304,P007,2023-10-01,demand_spike,Unexpected demand surge (promotion/season),1,
+SC0305,P007,2024-08-01,demand_spike,Unexpected demand surge (promotion/season),1,
+SC0306,P007,2024-08-01,transport_strike,Transport strike affecting logistics,2,
+SC0307,P002,2025-01-01,currency_shock,Currency fluctuation increases cost,2,
+SC0308,P003,2023-05-01,currency_shock,Currency fluctuation increases cost,3,
+SC0309,P001,2025-12-01,transport_strike,Transport strike affecting logistics,3,
+SC0310,P005,2023-09-01,quality_issue,Batch quality issue; returns expected,2,S004
+SC0311,P005,2025-07-01,port_closure,Major port closure delays shipments,2,S002
+SC0312,P008,2025-08-01,demand_spike,Unexpected demand surge (promotion/season),1,
+SC0313,P002,2025-08-01,factory_shutdown,Factory temporary shutdown,4,S005
+SC0314,P006,2023-01-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0315,P001,2023-06-01,quality_issue,Batch quality issue; returns expected,3,S002
+SC0316,P005,2023-08-01,none,No event (normal operations),1,
+SC0317,P010,2023-03-01,quality_issue,Batch quality issue; returns expected,1,S003
+SC0318,P006,2025-03-01,port_closure,Major port closure delays shipments,3,S006
+SC0319,P003,2023-01-01,currency_shock,Currency fluctuation increases cost,2,
+SC0320,P009,2025-07-01,supplier_delay,Supplier delay due to port congestion,3,S006
+SC0321,P003,2025-07-01,supplier_delay,Supplier delay due to port congestion,5,S004
+SC0322,P001,2025-06-01,supplier_delay,Supplier delay due to port congestion,2,S007
+SC0323,P007,2023-09-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0324,P004,2024-01-01,supplier_delay,Supplier delay due to port congestion,3,S006
+SC0325,P006,2025-02-01,none,No event (normal operations),4,
+SC0326,P009,2025-10-01,none,No event (normal operations),3,
+SC0327,P007,2025-07-01,transport_strike,Transport strike affecting logistics,5,
+SC0328,P001,2023-06-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0329,P007,2023-03-01,quality_issue,Batch quality issue; returns expected,4,S006
+SC0330,P003,2024-02-01,currency_shock,Currency fluctuation increases cost,1,
+SC0331,P007,2023-11-01,factory_shutdown,Factory temporary shutdown,5,S005
+SC0332,P007,2023-01-01,factory_shutdown,Factory temporary shutdown,3,S005
+SC0333,P007,2023-05-01,factory_shutdown,Factory temporary shutdown,2,S001
+SC0334,P001,2023-04-01,factory_shutdown,Factory temporary shutdown,4,S005
+SC0335,P005,2025-12-01,currency_shock,Currency fluctuation increases cost,3,
+SC0336,P005,2023-12-01,transport_strike,Transport strike affecting logistics,2,
+SC0337,P009,2025-01-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0338,P005,2024-05-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0339,P001,2024-02-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0340,P008,2025-04-01,quality_issue,Batch quality issue; returns expected,1,S006
+SC0341,P010,2025-02-01,quality_issue,Batch quality issue; returns expected,1,S007
+SC0342,P006,2023-11-01,port_closure,Major port closure delays shipments,2,S006
+SC0343,P004,2024-08-01,currency_shock,Currency fluctuation increases cost,1,
+SC0344,P008,2023-03-01,supplier_delay,Supplier delay due to port congestion,3,S002
+SC0345,P009,2024-05-01,quality_issue,Batch quality issue; returns expected,1,S004
+SC0346,P007,2023-11-01,transport_strike,Transport strike affecting logistics,1,
+SC0347,P002,2025-06-01,none,No event (normal operations),5,
+SC0348,P007,2024-09-01,none,No event (normal operations),4,
+SC0349,P009,2024-05-01,transport_strike,Transport strike affecting logistics,2,
+SC0350,P006,2025-08-01,transport_strike,Transport strike affecting logistics,2,
+SC0351,P008,2025-06-01,currency_shock,Currency fluctuation increases cost,1,
+SC0352,P006,2024-07-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0353,P007,2024-07-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0354,P002,2023-11-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0355,P010,2023-06-01,quality_issue,Batch quality issue; returns expected,2,S006
+SC0356,P004,2025-12-01,quality_issue,Batch quality issue; returns expected,2,S007
+SC0357,P005,2023-03-01,port_closure,Major port closure delays shipments,3,S003
+SC0358,P001,2025-11-01,transport_strike,Transport strike affecting logistics,4,
+SC0359,P010,2025-02-01,factory_shutdown,Factory temporary shutdown,2,S007
+SC0360,P008,2025-08-01,transport_strike,Transport strike affecting logistics,3,
+SC0361,P008,2023-10-01,port_closure,Major port closure delays shipments,2,S002
+SC0362,P001,2025-08-01,quality_issue,Batch quality issue; returns expected,3,S002
+SC0363,P009,2024-04-01,currency_shock,Currency fluctuation increases cost,2,
+SC0364,P008,2023-11-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0365,P006,2023-01-01,supplier_delay,Supplier delay due to port congestion,1,S002
+SC0366,P008,2024-09-01,quality_issue,Batch quality issue; returns expected,2,S002
+SC0367,P003,2025-02-01,transport_strike,Transport strike affecting logistics,2,
+SC0368,P005,2023-03-01,transport_strike,Transport strike affecting logistics,1,
+SC0369,P010,2023-07-01,supplier_delay,Supplier delay due to port congestion,4,S007
+SC0370,P005,2023-03-01,none,No event (normal operations),4,
+SC0371,P001,2024-05-01,quality_issue,Batch quality issue; returns expected,1,S007
+SC0372,P008,2024-01-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0373,P010,2024-01-01,supplier_delay,Supplier delay due to port congestion,3,S007
+SC0374,P007,2025-06-01,transport_strike,Transport strike affecting logistics,4,
+SC0375,P002,2023-09-01,none,No event (normal operations),5,
+SC0376,P003,2025-10-01,transport_strike,Transport strike affecting logistics,2,
+SC0377,P006,2025-04-01,quality_issue,Batch quality issue; returns expected,3,S008
+SC0378,P009,2024-04-01,transport_strike,Transport strike affecting logistics,2,
+SC0379,P002,2024-12-01,none,No event (normal operations),2,
+SC0380,P004,2024-01-01,transport_strike,Transport strike affecting logistics,4,
+SC0381,P010,2024-05-01,demand_spike,Unexpected demand surge (promotion/season),3,
+SC0382,P003,2024-02-01,none,No event (normal operations),5,
+SC0383,P001,2024-08-01,supplier_delay,Supplier delay due to port congestion,4,S002
+SC0384,P008,2023-05-01,currency_shock,Currency fluctuation increases cost,3,
+SC0385,P002,2025-12-01,port_closure,Major port closure delays shipments,5,S008
+SC0386,P006,2023-02-01,factory_shutdown,Factory temporary shutdown,1,S002
+SC0387,P003,2024-10-01,currency_shock,Currency fluctuation increases cost,1,
+SC0388,P005,2024-01-01,demand_spike,Unexpected demand surge (promotion/season),1,
+SC0389,P002,2025-11-01,factory_shutdown,Factory temporary shutdown,4,S003
+SC0390,P004,2023-09-01,port_closure,Major port closure delays shipments,2,S003
+SC0391,P002,2025-05-01,transport_strike,Transport strike affecting logistics,3,
+SC0392,P001,2024-12-01,demand_spike,Unexpected demand surge (promotion/season),2,
+SC0393,P003,2025-05-01,transport_strike,Transport strike affecting logistics,5,
+SC0394,P009,2024-10-01,transport_strike,Transport strike affecting logistics,4,
+SC0395,P002,2024-08-01,port_closure,Major port closure delays shipments,2,S008
+SC0396,P003,2024-04-01,supplier_delay,Supplier delay due to port congestion,4,S006
+SC0397,P008,2023-12-01,currency_shock,Currency fluctuation increases cost,2,
+SC0398,P009,2023-07-01,transport_strike,Transport strike affecting logistics,2,
+SC0399,P004,2025-02-01,quality_issue,Batch quality issue; returns expected,1,S003
+SC0400,P005,2023-08-01,currency_shock,Currency fluctuation increases cost,2,
