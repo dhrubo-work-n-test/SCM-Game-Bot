@@ -1,8 +1,0 @@
-supplier_id,country,lead_time_days_mean,lead_time_days_std,cost_multiplier,reliability_pct
-S01,Poland,6,4,0.94,97
-S02,Germany,11,4,1.1,84
-S03,India,7,6,1.03,87
-S04,India,12,4,0.99,75
-S05,Germany,26,2,1.14,98
-S06,USA,22,2,1.07,79
-S07,Poland,8,6,1.24,84
